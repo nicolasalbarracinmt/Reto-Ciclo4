@@ -11,7 +11,7 @@
 	<groupId>com.misiontic.sergio</groupId>
 	<artifactId>cacharrero</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>cacharrero</name>
 	<description>Pedidos por catálogo</description>
 	<properties>
