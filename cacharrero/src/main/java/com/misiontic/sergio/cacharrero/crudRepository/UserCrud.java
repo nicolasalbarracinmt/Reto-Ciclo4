@@ -1,18 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package repositories;
+package com.misiontic.sergio.cacharrero.crudRepository;
 
 import java.util.List;
 import java.util.Optional;
-import model.User;
+import com.misiontic.sergio.cacharrero.model.User;
 import org.springframework.data.repository.CrudRepository;
 
 /**
  *
- * @author harold
+ * @author Nico
  */
 public interface UserCrud extends CrudRepository<User, Integer>{
     

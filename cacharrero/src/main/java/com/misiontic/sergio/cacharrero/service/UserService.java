@@ -1,11 +1,11 @@
-package service;
+package com.misiontic.sergio.cacharrero.service;
 
 import java.util.List;
 import java.util.Optional;
-import model.User;
+import com.misiontic.sergio.cacharrero.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import repositories.UserRepository;
+import com.misiontic.sergio.cacharrero.repositories.UserRepository;
 
 /**
  *
@@ -29,25 +29,33 @@ public class UserService {
      * @param user
      * @return 
      */
+    
     public User save(User user) {
-        if (user.getEmail() == null || user.getPassword() == null || user.getName() == null) {
+        if (user.getName() == null || user.getEmail() == null || user.getPassword() == null) {
             return user;
+
         } else {
-            List<User> existUser= repository.getUsersByNameOrEmail(user.getName(), user.getEmail());
-            Optional<User> existUserId = repository.getUserById(user.getId());
-            if(existUser.isEmpty()){
-                if(user.getId()==null){
+            List<User> existUser = repository.getUsersByNameOrEmail(user.getName(), user.getEmail());
+            if (existUser.isEmpty()) {
+                if (user.getId() == null) {
                     return repository.save(user);
-                }else if(existUserId.isEmpty()){
-                    return repository.save(user);
-                }else{
-                    return user;
+
+                } else {
+                    Optional<User> existUserId = repository.getUserById(user.getId());
+                    if (existUserId.isEmpty()) {
+                        return repository.save(user);
+                    } else {
+                        return user;
+                    }
                 }
-            }else{
+
+            } else {
                 return user;
             }
         }
+
     }
+
     
     public boolean existenciaEmail(String email){
         return repository.getUserByEmail(email).isPresent();
@@ -62,3 +70,10 @@ public class UserService {
         }
     }
 }
+
+
+    
+
+
+
+    

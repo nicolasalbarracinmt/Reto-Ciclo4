@@ -1,5 +1,5 @@
 
-package model;
+package com.misiontic.sergio.cacharrero.model;
 
 import java.io.Serializable;
 import javax.persistence.Column;
@@ -28,8 +28,10 @@ public class User implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @NonNull
-    @Column(name = "user_email", nullable = false, length = 50)
+    @Column(name="user_email",unique=true,length =50,nullable =false)
     private String email;
+//    @Column(name = "user_email", nullable = false, length = 50)
+//    private String email;
     @NonNull
     @Column(name = "user_password", nullable = false, length = 50)
     private String password;

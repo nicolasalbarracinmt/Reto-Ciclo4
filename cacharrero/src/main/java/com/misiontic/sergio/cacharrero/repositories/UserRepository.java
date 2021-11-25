@@ -1,9 +1,10 @@
 
-package repositories;
+package com.misiontic.sergio.cacharrero.repositories;
 
 import java.util.List;
 import java.util.Optional;
-import model.User;
+import com.misiontic.sergio.cacharrero.model.User;
+import com.misiontic.sergio.cacharrero.crudRepository.UserCrud;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -16,6 +17,9 @@ public class UserRepository {
 
     @Autowired
     private UserCrud repository;
+    
+
+    
     
     /**
      * 
@@ -32,6 +36,7 @@ public class UserRepository {
      */
     public User save(User user){
         return repository.save(user);
+        
     }
     
     /**
@@ -77,3 +82,10 @@ public class UserRepository {
     }
     
 }
+
+
+
+
+ 
+
+  
